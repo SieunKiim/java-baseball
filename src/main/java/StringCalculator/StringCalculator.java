@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class StringCalculator {
+
     private Set<String> operator = new HashSet<>(List.of(new String[]{"+", "-", "*", "/"}));
 
     private final Scanner scanner = new Scanner(System.in);
@@ -12,12 +13,12 @@ public class StringCalculator {
     private final List<Integer> numbers = new ArrayList<>();
     private final List<String> operators = new ArrayList<>();
 
-    public StringCalculator(){
+    public StringCalculator() {
         this.raw = parser(input());
         initCalculator();
     }
 
-    public String input(){
+    public String input() {
         return scanner.nextLine();
     }
 
@@ -25,7 +26,7 @@ public class StringCalculator {
         return s.split(" ");
     }
 
-    public void initCalculator(){
+    public void initCalculator() {
         for (String s : raw) {
             inputClassifier(s);
         }
@@ -47,7 +48,7 @@ public class StringCalculator {
         return result;
     }
 
-    public String[] getRaw(){
+    public String[] getRaw() {
         return this.raw;
     }
 
@@ -65,6 +66,7 @@ public class StringCalculator {
     private int plus(int a, int b) {
         return a + b;
     }
+
     private int minus(int a, int b) {
         return a - b;
     }
