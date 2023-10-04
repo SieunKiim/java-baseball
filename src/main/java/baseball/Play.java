@@ -9,17 +9,15 @@ public class Play {
     private AnswerNum answerNum;
 
     public Play() {
+    }
+
+    public void play(){
         boolean play = true;
         while (play) {
             setAnswerNum();
             loop();
             play = askNextGame();
         }
-    }
-
-    public void play(){
-        loop();
-
     }
 
     private void loop(){
@@ -33,10 +31,7 @@ public class Play {
     }
 
     private boolean isCorrect(HashMap<String, Integer> compareResult) {
-        if (compareResult.get("s") == 3) {
-            return true;
-        }
-        return false;
+        return compareResult.get("s") == 3;
     }
 
     private Integer getUserInput(){
@@ -55,9 +50,6 @@ public class Play {
     private boolean askNextGame(){
         resultView.endMessage();
         int op = inputView.getNumber();
-        if (op == 1) {
-            return true;
-        }
-        return false;
+        return op == 1;
     }
 }
