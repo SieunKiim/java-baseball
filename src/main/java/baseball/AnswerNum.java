@@ -16,6 +16,10 @@ public class AnswerNum {
         return result;
     }
 
+    public List<Integer> getAnswer(){
+        return this.answer;
+    }
+
     private HashMap<String, Integer> initCompareResult(){
         HashMap<String, Integer> result = new HashMap<>();
         result.put("s", 0);
