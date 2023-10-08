@@ -4,11 +4,12 @@ import java.util.HashMap;
 
 public class Play {
 
-    private final InputView inputView = new InputView();
+    private final InputView inputView;
     private final ResultView resultView = new ResultView();
     private AnswerNum answerNum;
 
-    public Play() {
+    public Play(InputView inputView) {
+        this.inputView = inputView;
     }
 
     public void play(){
@@ -26,7 +27,7 @@ public class Play {
             Integer num = getUserInput();
             HashMap<String, Integer> compareResult = answerNum.compare(num);
             printResult(compareResult);
-            flag = isCorrect(compareResult);
+            flag = !isCorrect(compareResult);
         }
     }
 
@@ -49,7 +50,7 @@ public class Play {
 
     private boolean askNextGame(){
         resultView.endMessage();
-        int op = inputView.getNumber();
+        int op = inputView.getStartOrEnd();
         return op == 1;
     }
 }

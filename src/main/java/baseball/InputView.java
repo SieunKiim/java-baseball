@@ -2,15 +2,15 @@ package baseball;
 
 import java.util.Scanner;
 
-public class InputView {
+public interface InputView {
 
     Scanner sc = new Scanner(System.in);
 
-    public Integer getNumber() {
-        return Util.parseToInteger(read());
-    }
+    Integer getNumber();
 
-    private String read() {
+    Integer getStartOrEnd();
+
+    public static String read() {
         return sc.nextLine();
     }
 }
